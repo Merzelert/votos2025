@@ -15,67 +15,67 @@
             },
             {
                 "nombre": "Shōgun",
-                "imagen": ""
+                "imagen": "/img/shogun.jpg"
             },
             {
                 "nombre": "Slow Horses",
-                "imagen": ""
+                "imagen": "/img/slowHorses.png"
             },
             {
                 "nombre": "El juego del calamar",
-                "imagen": ""
+                "imagen": "/img/elJuegoDelCalamar.webp"
             }
         ],
         "mejor_serie_de_comedia_o_musical": [
             {
                 "nombre": "Hacks",
-                "imagen": ""
+                "imagen": "/img/Hacks.jpg"
             },
             {
                 "nombre": "Abbott Elementary",
-                "imagen": ""
+                "imagen": "/img/AbbottElementary.jpg"
             },
             {
                 "nombre": "Only Murders in the Building",
-                "imagen": ""
+                "imagen": "/img/onlyMurders.webp"
             },
             {
                 "nombre": "Nobody Wants This",
-                "imagen": ""
+                "imagen": "/img/nobodyWantsThis.jpg"
             },
             {
                 "nombre": "The Gentlemen",
-                "imagen": ""
+                "imagen": "/img/theGentlemen.jpg"
             },
             {
                 "nombre": "The Bear",
-                "imagen": ""
+                "imagen": "/img/theBear.jpg"
             }
         ],
         "mejor_actor_de_drama": [
             {
                 "nombre": "Donald Glover – Mr. & Mrs. Smith",
-                "imagen": ""
+                "imagen": "/img/DonaldGlover.webp"
             },
             {
                 "nombre": "Jake Gyllenhaal – Presumed Innocent",
-                "imagen": ""
+                "imagen": "/img/jakeGyllenhaal.webp"
             },
             {
                 "nombre": "Gary Oldman – Slow Horses",
-                "imagen": ""
+                "imagen": "/img/gary-oldman.webp"
             },
             {
                 "nombre": "Eddie Redmayne – The Day of the Jackal",
-                "imagen": ""
+                "imagen": "/img/eddieR.webp"
             },
             {
                 "nombre": "Hiroyuki Sanada – Shōgun",
-                "imagen": ""
+                "imagen": "/img/hiroyukiSanada.webp"
             },
             {
                 "nombre": "Billy Bob Thornton – Landman",
-                "imagen": ""
+                "imagen": "/img/billyBobThornton.webp"
             }
         ],
         "mejor_actriz_de_drama": [
