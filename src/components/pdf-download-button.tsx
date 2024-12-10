@@ -42,11 +42,9 @@ export function PdfDownloadButton({ nombre, votos }: PdfDownloadButtonProps) {
                 }
             }}
         >
-            {({ loading }: { loading: boolean }) => (
-                <Button disabled={loading || !nombre || Object.keys(votos).length === 0}>
-                    {loading ? 'Generando PDF...' : 'Exportar PDF'}
-                </Button>
-            )}
+            <Button>
+                Exportar PDF
+            </Button>
         </PDFDownloadLink>
     )
 }

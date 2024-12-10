@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
+import type { PdfDownloadButton } from '@/components/pdf-download-button'
 
 interface PdfButtonProps {
     nombre: string
@@ -9,7 +10,7 @@ interface PdfButtonProps {
 }
 
 export function PdfButton({ nombre, votos }: PdfButtonProps) {
-    const [PDFDownload, setPDFDownload] = useState<any>(null)
+    const [PDFDownload, setPDFDownload] = useState<typeof PdfDownloadButton | null>(null)
 
     useEffect(() => {
         import('@/components/pdf-download-button').then((module) => {

@@ -59,18 +59,6 @@ export default function VotingSystem() {
         }))
     }
 
-    const handleExportPDF = () => {
-        if (!nombre) {
-            alert('Por favor, ingresa tu nombre antes de exportar el PDF')
-            return
-        }
-
-        if (Object.keys(votos).length === 0) {
-            alert('No hay votos para exportar')
-            return
-        }
-    }
-
     const renderCategoriaCards = (seccion: "television" | "cine", categoria: string) => {
         const nominees = globosData[seccion][categoria as keyof typeof globosData[typeof seccion]]
         if (!Array.isArray(nominees)) return null
