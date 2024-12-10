@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-// import Image from "next/image"
+import Image from "next/image"
 import { ModeToggle } from "@/components/mode-toggle"
 import globosData from "@/data/globos.json"
 import { Button } from "@/components/ui/button"
@@ -19,6 +19,16 @@ const STORAGE_KEYS = {
     VOTOS: 'globos_oro_votos',
     NOMBRE: 'globos_oro_nombre'
 } as const
+
+const createJustWatchUrl = (nombre: string) => {
+    // Limpiamos el nombre de caracteres especiales y roles
+    const cleanName = nombre.split('–')[0].trim() // Remueve el rol/película después del guión
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") // Remueve acentos
+        .replace(/[^a-zA-Z0-9\s]/g, "") // Solo deja letras, números y espacios
+    
+    return `https://justwatch.com/mx/buscar?q=${encodeURIComponent(cleanName)}`
+}
 
 export default function VotingSystem() {
     const [votos, setVotos] = useState<Record<string, string>>({})
@@ -71,24 +81,43 @@ export default function VotingSystem() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {nominees.map((nominee: Nominee) => (
                         <Card key={`${categoria}-${nominee.nombre}`} className="overflow-hidden">
-                            {/* <div className="aspect-video bg-muted relative overflow-hidden">
-                                {nominee.imagen ? (
-                                    <Image
-                                        src={nominee.imagen}
-                                        alt={nominee.nombre}
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        priority={false}
-                                    />
-                                ) : (
-                                    <div className="flex items-center justify-center h-full">
-                                        <span className="text-muted-foreground">Sin imagen</span>
-                                    </div>
-                                )}
-                            </div> */}
+                            <a
+                                href={createJustWatchUrl(nominee.nombre)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block cursor-pointer"
+                            >
+                                <div className="aspect-video bg-muted relative overflow-hidden group">
+                                    {nominee.imagen ? (
+                                        <>
+                                            <Image
+                                                src={nominee.imagen}
+                                                alt={nominee.nombre}
+                                                fill
+                                                className="object-cover transition-transform group-hover:scale-105"
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                priority={false}
+                                            />
+                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                                        </>
+                                    ) : (
+                                        <div className="flex items-center justify-center h-full group-hover:bg-muted-foreground/5">
+                                            <span className="text-muted-foreground">Sin imagen</span>
+                                        </div>
+                                    )}
+                                </div>
+                            </a>
                             <CardHeader>
-                                <CardTitle className="text-lg">{nominee.nombre}</CardTitle>
+                                <CardTitle className="text-lg">
+                                    <a
+                                        href={createJustWatchUrl(nominee.nombre)}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:text-primary transition-colors"
+                                    >
+                                        {nominee.nombre}
+                                    </a>
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <Button

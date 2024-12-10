@@ -3,15 +3,15 @@
         "mejor_serie_de_drama": [
             {
                 "nombre": "El chacal",
-                "imagen": ""
+                "imagen": "/img/elChacal.jpg"
             },
             {
                 "nombre": "The Diplomat",
-                "imagen": ""
+                "imagen": "/img/theDiplomat.jpg"
             },
             {
                 "nombre": "Mr. & Mrs. Smith",
-                "imagen": ""
+                "imagen": "/img/mrSmith.jpg"
             },
             {
                 "nombre": "Shōgun",
