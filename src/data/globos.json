@@ -1,0 +1,638 @@
+{
+    "television": {
+        "mejor_serie_de_drama": [
+            {
+                "nombre": "El chacal",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Diplomat",
+                "imagen": ""
+            },
+            {
+                "nombre": "Mr. & Mrs. Smith",
+                "imagen": ""
+            },
+            {
+                "nombre": "Shōgun",
+                "imagen": ""
+            },
+            {
+                "nombre": "Slow Horses",
+                "imagen": ""
+            },
+            {
+                "nombre": "El juego del calamar",
+                "imagen": ""
+            }
+        ],
+        "mejor_serie_de_comedia_o_musical": [
+            {
+                "nombre": "Hacks",
+                "imagen": ""
+            },
+            {
+                "nombre": "Abbott Elementary",
+                "imagen": ""
+            },
+            {
+                "nombre": "Only Murders in the Building",
+                "imagen": ""
+            },
+            {
+                "nombre": "Nobody Wants This",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Gentlemen",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Bear",
+                "imagen": ""
+            }
+        ],
+        "mejor_actor_de_drama": [
+            {
+                "nombre": "Donald Glover – Mr. & Mrs. Smith",
+                "imagen": ""
+            },
+            {
+                "nombre": "Jake Gyllenhaal – Presumed Innocent",
+                "imagen": ""
+            },
+            {
+                "nombre": "Gary Oldman – Slow Horses",
+                "imagen": ""
+            },
+            {
+                "nombre": "Eddie Redmayne – The Day of the Jackal",
+                "imagen": ""
+            },
+            {
+                "nombre": "Hiroyuki Sanada – Shōgun",
+                "imagen": ""
+            },
+            {
+                "nombre": "Billy Bob Thornton – Landman",
+                "imagen": ""
+            }
+        ],
+        "mejor_actriz_de_drama": [
+            {
+                "nombre": "Kathy Bates - Matlock",
+                "imagen": ""
+            },
+            {
+                "nombre": "Emma D’Arcy - House of the Dragon",
+                "imagen": ""
+            },
+            {
+                "nombre": "Maya Erskine - Mr. and Mrs. Smith",
+                "imagen": ""
+            },
+            {
+                "nombre": "Keira Knightley - Black Doves",
+                "imagen": ""
+            },
+            {
+                "nombre": "Anna Sawai - Shōgun",
+                "imagen": ""
+            },
+            {
+                "nombre": "Keri Russell - The Diplomat",
+                "imagen": ""
+            }
+        ],
+        "mejor_actor_de_musical_o_comedia": [
+            {
+                "nombre": "Adam Brody - Nobody Wants This",
+                "imagen": ""
+            },
+            {
+                "nombre": "Ted Danson - A Man on the Inside",
+                "imagen": ""
+            },
+            {
+                "nombre": "Steve Martin - Only Murders In The Building",
+                "imagen": ""
+            },
+            {
+                "nombre": "Jason Segel - Shrinking",
+                "imagen": ""
+            },
+            {
+                "nombre": "Martin Short - Only Murders In The Building",
+                "imagen": ""
+            },
+            {
+                "nombre": "Jeremy Allen White - The Bear",
+                "imagen": ""
+            }
+        ],
+        "mejor_actriz_de_musical_o_comedia": [
+            {
+                "nombre": "Kathryn Hahn - Agatha All Along",
+                "imagen": ""
+            },
+            {
+                "nombre": "Jean Smart - Hacks",
+                "imagen": ""
+            },
+            {
+                "nombre": "Quinta Brunson - Abbott Elementary",
+                "imagen": ""
+            },
+            {
+                "nombre": "Selena Gomez - Only Murders In The Building",
+                "imagen": ""
+            },
+            {
+                "nombre": "Ayo Edebiri - The Bear",
+                "imagen": ""
+            },
+            {
+                "nombre": "Kristen Bell - Nobody Wants This",
+                "imagen": ""
+            }
+        ],
+        "mejor_actor_de_reparto_en_serie": [
+            {
+                "nombre": "Tadonobu Asano - Shōgun",
+                "imagen": ""
+            },
+            {
+                "nombre": "Javier Bardem - Monsters: The Lyle and Erik Menendez Story",
+                "imagen": ""
+            },
+            {
+                "nombre": "Harrison Ford - Shrinking",
+                "imagen": ""
+            },
+            {
+                "nombre": "Jack Lowden - Slow Horses",
+                "imagen": ""
+            },
+            {
+                "nombre": "Diego Luna - La máquina",
+                "imagen": ""
+            },
+            {
+                "nombre": "Ebon Moss-Bachrach - The Bear",
+                "imagen": ""
+            }
+        ],
+        "mejor_actriz_de_reparto_en_serie": [
+            {
+                "nombre": "Jessica Gunning - Baby Reindeer",
+                "imagen": ""
+            },
+            {
+                "nombre": "Liza Colón-Zayas - The Bear",
+                "imagen": ""
+            },
+            {
+                "nombre": "Hannah Einbinder - Hacks",
+                "imagen": ""
+            },
+            {
+                "nombre": "Dakota Fanning - Ripley",
+                "imagen": ""
+            },
+            {
+                "nombre": "Allison Janney - La diplomática",
+                "imagen": ""
+            },
+            {
+                "nombre": "Kali Reis - True Detective: Night Country",
+                "imagen": ""
+            }
+        ],
+        "mejor_miniserie_serie_antologica_o_pelicula": [
+            {
+                "nombre": "Baby Reindeer",
+                "imagen": ""
+            },
+            {
+                "nombre": "Disclaimer",
+                "imagen": ""
+            },
+            {
+                "nombre": "Monsters: The Lyle and Erik Menendez Story",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Penguin",
+                "imagen": ""
+            },
+            {
+                "nombre": "Ripley",
+                "imagen": ""
+            },
+            {
+                "nombre": "True Detective: Night Country",
+                "imagen": ""
+            }
+        ]
+    },
+    "cine": {
+        "mejor_drama": [
+            {
+                "nombre": "The Brutalist",
+                "imagen": ""
+            },
+            {
+                "nombre": "A Complete Unknown",
+                "imagen": ""
+            },
+            {
+                "nombre": "Conclave",
+                "imagen": ""
+            },
+            {
+                "nombre": "Dune: Part Two",
+                "imagen": ""
+            },
+            {
+                "nombre": "Nickel Boys",
+                "imagen": ""
+            },
+            {
+                "nombre": "September 5",
+                "imagen": ""
+            }
+        ],
+        "mejor_musical_o_comedia": [
+            {
+                "nombre": "Anora",
+                "imagen": ""
+            },
+            {
+                "nombre": "Challengers",
+                "imagen": ""
+            },
+            {
+                "nombre": "Emilia Perez",
+                "imagen": ""
+            },
+            {
+                "nombre": "A Real Pain",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Substance",
+                "imagen": ""
+            },
+            {
+                "nombre": "Wicked",
+                "imagen": ""
+            }
+        ],
+        "desempeno_notable_en_la_taquilla": [
+            {
+                "nombre": "Deadpool & Wolverine",
+                "imagen": ""
+            },
+            {
+                "nombre": "Intensamente 2",
+                "imagen": ""
+            },
+            {
+                "nombre": "Gladiador 2",
+                "imagen": ""
+            },
+            {
+                "nombre": "Wicked",
+                "imagen": ""
+            },
+            {
+                "nombre": "Beetlejuice, Beetlejuice",
+                "imagen": ""
+            },
+            {
+                "nombre": "Robot Salvaje",
+                "imagen": ""
+            },
+            {
+                "nombre": "Twisters",
+                "imagen": ""
+            },
+            {
+                "nombre": "Alien: Romulus",
+                "imagen": ""
+            }
+        ],
+        "mejor_pelicula_de_habla_no_inglesa": [
+            {
+                "nombre": "All We Imagine as Light - India",
+                "imagen": ""
+            },
+            {
+                "nombre": "Emilia Pérez - Francia",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Girl With the Needle - Dinamarca",
+                "imagen": ""
+            },
+            {
+                "nombre": "I’m Still Here - Brasil",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Seed of the Sacred Fig - Alemania",
+                "imagen": ""
+            },
+            {
+                "nombre": "Vermiglio - Italia",
+                "imagen": ""
+            }
+        ],
+        "mejor_animacion": [
+            {
+                "nombre": "Flow",
+                "imagen": ""
+            },
+            {
+                "nombre": "Intensamente 2",
+                "imagen": ""
+            },
+            {
+                "nombre": "Memoir of a Snail",
+                "imagen": ""
+            },
+            {
+                "nombre": "Moana 2",
+                "imagen": ""
+            },
+            {
+                "nombre": "Wallace and Gromit: Vengeance Most Fowl",
+                "imagen": ""
+            },
+            {
+                "nombre": "Robot Salvaje",
+                "imagen": ""
+            }
+        ],
+        "mejor_actor_de_drama": [
+            {
+                "nombre": "Adrien Brody - The Brutalist",
+                "imagen": ""
+            },
+            {
+                "nombre": "Timothée Chalamet - A Complete Unknown",
+                "imagen": ""
+            },
+            {
+                "nombre": "Daniel Craig - Queer",
+                "imagen": ""
+            },
+            {
+                "nombre": "Colman Domingo - Sing Sing",
+                "imagen": ""
+            },
+            {
+                "nombre": "Ralph Fiennes - Conclave",
+                "imagen": ""
+            },
+            {
+                "nombre": "Sebastian Stan - The Apprentice",
+                "imagen": ""
+            }
+        ],
+        "mejor_actor_de_comedia_o_musical": [
+            {
+                "nombre": "Jesse Eisenberg - A Real Pain",
+                "imagen": ""
+            },
+            {
+                "nombre": "Hugh Grant - Heretic",
+                "imagen": ""
+            },
+            {
+                "nombre": "Gabriel LaBelle - Saturday Night",
+                "imagen": ""
+            },
+            {
+                "nombre": "Jesse Plemons - Kinds of Kindness",
+                "imagen": ""
+            },
+            {
+                "nombre": "Glen Powell - Hit Man",
+                "imagen": ""
+            },
+            {
+                "nombre": "Sebastian Stan - A Different Man",
+                "imagen": ""
+            }
+        ],
+        "mejor_actriz_de_drama": [
+            {
+                "nombre": "Pamela Anderson - The Last Showgirl",
+                "imagen": ""
+            },
+            {
+                "nombre": "Angelina Jolie - Maria",
+                "imagen": ""
+            },
+            {
+                "nombre": "Nicole Kidman - Babygirl",
+                "imagen": ""
+            },
+            {
+                "nombre": "Tilda Swinton - The Room Next Door",
+                "imagen": ""
+            },
+            {
+                "nombre": "Fernanda Torres - I'm Still Here",
+                "imagen": ""
+            },
+            {
+                "nombre": "Cate Blanchett - Lee",
+                "imagen": ""
+            }
+        ],
+        "mejor_actriz_de_comedia_o_musical": [
+            {
+                "nombre": "Amy Adams - Nightbitch",
+                "imagen": ""
+            },
+            {
+                "nombre": "Cynthia Erivo - Wicked",
+                "imagen": ""
+            },
+            {
+                "nombre": "Karla Sofía Gascón - Emilia Pérez",
+                "imagen": ""
+            },
+            {
+                "nombre": "Mikey Madison - Anora",
+                "imagen": ""
+            },
+            {
+                "nombre": "Demi Moore - The Substance",
+                "imagen": ""
+            },
+            {
+                "nombre": "Zendaya - Challengers",
+                "imagen": ""
+            }
+        ],
+        "mejor_actor_de_reparto": [
+            {
+                "nombre": "Denzel Washington - Gladiador II",
+                "imagen": ""
+            },
+            {
+                "nombre": "Kieran Culkin - A Real Pain",
+                "imagen": ""
+            },
+            {
+                "nombre": "Guy Pearce - The Brutalist",
+                "imagen": ""
+            },
+            {
+                "nombre": "Jeremy Strong - The Apprentice",
+                "imagen": ""
+            },
+            {
+                "nombre": "Yura Borisov - Anora",
+                "imagen": ""
+            },
+            {
+                "nombre": "Edward Norton - A Complete Unknown",
+                "imagen": ""
+            }
+        ],
+        "mejor_actriz_de_reparto": [
+            {
+                "nombre": "Selena Gomez – Emilia Perez",
+                "imagen": ""
+            },
+            {
+                "nombre": "Ariana Grande – Wicked",
+                "imagen": ""
+            },
+            {
+                "nombre": "Felicity Jones – The Brutalist",
+                "imagen": ""
+            },
+            {
+                "nombre": "Margaret Qualley – The Substance",
+                "imagen": ""
+            },
+            {
+                "nombre": "Isabella Rossellini – Conclave",
+                "imagen": ""
+            },
+            {
+                "nombre": "Zoe Saldana – Emilia Perez",
+                "imagen": ""
+            }
+        ],
+        "mejor_direccion": [
+            {
+                "nombre": "Jacques Audiard - Emilia Perez",
+                "imagen": ""
+            },
+            {
+                "nombre": "Sean Baker - Anora",
+                "imagen": ""
+            },
+            {
+                "nombre": "Edward Berger - Conclave",
+                "imagen": ""
+            },
+            {
+                "nombre": "Brady Corbet - The Brutalist",
+                "imagen": ""
+            },
+            {
+                "nombre": "Coralie Fargeat - The Substance",
+                "imagen": ""
+            },
+            {
+                "nombre": "Payal Kapadia - All We Imagine as Light",
+                "imagen": ""
+            }
+        ],
+        "mejor_guion": [
+            {
+                "nombre": "Emilia Pérez",
+                "imagen": ""
+            },
+            {
+                "nombre": "Anora",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Brutalist",
+                "imagen": ""
+            },
+            {
+                "nombre": "A Real Pain",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Substance",
+                "imagen": ""
+            },
+            {
+                "nombre": "Conclave",
+                "imagen": ""
+            }
+        ],
+        "mejor_banda_sonora": [
+            {
+                "nombre": "Conclave",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Brutalist",
+                "imagen": ""
+            },
+            {
+                "nombre": "The Wild Robot",
+                "imagen": ""
+            },
+            {
+                "nombre": "Emilia Perez",
+                "imagen": ""
+            },
+            {
+                "nombre": "Challengers",
+                "imagen": ""
+            },
+            {
+                "nombre": "Dune: Part Two",
+                "imagen": ""
+            }
+        ],
+        "mejor_cancion_original": [
+            {
+                "nombre": "The Last Showgirl - “Beautiful That Way”",
+                "imagen": ""
+            },
+            {
+                "nombre": "Challengers - “Compress/Repress”",
+                "imagen": ""
+            },
+            {
+                "nombre": "Emilia Pérez - “El Mal”",
+                "imagen": ""
+            },
+            {
+                "nombre": "Better Man - “Forbidden Road”",
+                "imagen": ""
+            },
+            {
+                "nombre": "Robot Salvaje - “Kiss the Sky”",
+                "imagen": ""
+            },
+            {
+                "nombre": "Emilia Pérez - “Mi Camino”",
+                "imagen": ""
+            }
+        ]
+    }
+}
