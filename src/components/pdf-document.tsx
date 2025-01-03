@@ -10,19 +10,19 @@ const styles = StyleSheet.create({
         padding: 30
     },
     header: {
-        marginBottom: 20,
+        marginBottom: 10,
         borderBottom: 1,
         borderBottomColor: '#666',
-        paddingBottom: 10
+        paddingBottom: 5
     },
     title: {
-        fontSize: 20,
+        fontSize: 14,
         marginBottom: 5
     },
     voter: {
         fontSize: 12,
         color: '#666',
-        marginBottom: 10
+        marginBottom: 5
     },
     table: {
         display: 'flex',
@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderWidth: 1,
         borderColor: '#bfbfbf',
-        marginBottom: 20
+        marginBottom: 10
     },
     tableRow: {
         flexDirection: 'row',
         borderBottomWidth: 1,
         borderBottomColor: '#bfbfbf',
-        minHeight: 30,
+        minHeight: 10,
         alignItems: 'center'
     },
     tableHeader: {
