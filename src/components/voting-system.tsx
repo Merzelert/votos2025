@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ModeToggle } from "@/components/mode-toggle"
-import globosData from "@/data/globos.json"
+import oscarsData from "@/data/oscars.json"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { PdfButton } from '@/components/pdf-button'
+import detallesOscars from "@/data/detallesOscars.json"
 
 interface Nominee {
     nombre: string
@@ -33,8 +34,9 @@ const createJustWatchUrl = (nombre: string) => {
 export default function VotingSystem() {
     const [votos, setVotos] = useState<Record<string, string>>({})
     const [nombre, setNombre] = useState("")
+    const [selectedCategory, setSelectedCategory] = useState<string>("Mejor_Pelicula")
 
-    // Cargar datos guardados al iniciar
+    // Ensure data is consistent between server and client
     useEffect(() => {
         const savedVotos = localStorage.getItem(STORAGE_KEYS.VOTOS)
         const savedNombre = localStorage.getItem(STORAGE_KEYS.NOMBRE)
@@ -52,16 +54,7 @@ export default function VotingSystem() {
         }
     }, [])
 
-    // Guardar votos cuando cambien
-    useEffect(() => {
-        localStorage.setItem(STORAGE_KEYS.VOTOS, JSON.stringify(votos))
-    }, [votos])
-
-    // Guardar nombre cuando cambie
-    useEffect(() => {
-        localStorage.setItem(STORAGE_KEYS.NOMBRE, nombre)
-    }, [nombre])
-
+    // Ensure no direct DOM manipulation in render phase
     const handleVote = (categoria: string, seleccion: string) => {
         setVotos(prev => ({
             ...prev,
@@ -69,63 +62,39 @@ export default function VotingSystem() {
         }))
     }
 
-    const renderCategoriaCards = (seccion: "television" | "cine", categoria: string) => {
-        const nominees = globosData[seccion][categoria as keyof typeof globosData[typeof seccion]]
+    const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedCategory(event.target.value)
+    }
+
+    const renderCategoriaCards = (categoria: string) => {
+        const nominees = oscarsData.Premios_Oscar_2025[categoria as keyof typeof oscarsData.Premios_Oscar_2025]
         if (!Array.isArray(nominees)) return null
 
         return (
-            <div key={`${seccion}-${categoria}`} className="mb-8">
+            <div key={categoria} className="mb-8">
                 <h2 className="text-2xl font-bold mb-4 capitalize">
                     {categoria.replace(/_/g, " ")}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {nominees.map((nominee: Nominee) => (
-                        <Card key={`${categoria}-${nominee.nombre}`} className="overflow-hidden">
-                            <a
-                                href={createJustWatchUrl(nominee.nombre)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block cursor-pointer"
-                            >
-                                <div className="aspect-video bg-muted relative overflow-hidden group">
-                                    {nominee.imagen ? (
-                                        <>
-                                            <Image
-                                                src={nominee.imagen}
-                                                alt={nominee.nombre}
-                                                fill
-                                                className="object-cover transition-transform group-hover:scale-105"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                                priority={false}
-                                            />
-                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                                        </>
-                                    ) : (
-                                        <div className="flex items-center justify-center h-full group-hover:bg-muted-foreground/5">
-                                            <span className="text-muted-foreground">Sin imagen</span>
-                                        </div>
-                                    )}
+                    {nominees.map((nominee: string) => (
+                        <Card key={`${categoria}-${nominee}`} className="overflow-hidden">
+                            {/* <div className="aspect-video bg-muted relative overflow-hidden group">
+                                <div className="flex items-center justify-center h-full group-hover:bg-muted-foreground/5">
+                                    <span className="text-muted-foreground">Sin imagen</span>
                                 </div>
-                            </a>
+                            </div> */}
                             <CardHeader>
                                 <CardTitle className="text-lg">
-                                    <a
-                                        href={createJustWatchUrl(nominee.nombre)}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:text-primary transition-colors"
-                                    >
-                                        {nominee.nombre}
-                                    </a>
+                                    {nominee}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <Button
-                                    variant={votos[categoria] === nominee.nombre ? "default" : "outline"}
+                                    variant={votos[categoria] === nominee ? "default" : "outline"}
                                     className="w-full"
-                                    onClick={() => handleVote(categoria, nominee.nombre)}
+                                    onClick={() => handleVote(categoria, nominee)}
                                 >
-                                    {votos[categoria] === nominee.nombre ? "Votado" : "Votar"}
+                                    {votos[categoria] === nominee ? "Votado" : "Votar"}
                                 </Button>
                             </CardContent>
                         </Card>
@@ -138,34 +107,48 @@ export default function VotingSystem() {
     return (
         <div className="min-h-screen p-4 md:p-8 flex flex-col">
             <div className="max-w-7xl mx-auto flex-1 w-full">
-                <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-4xl font-bold">Globos de Oro 2025</h1>
-                    <ModeToggle />
-                </div>
-
-                <div className="mb-8">
-                    <Input
-                        placeholder="Ingresa tu nombre"
-                        value={nombre}
-                        onChange={(e) => setNombre(e.target.value)}
-                        className="max-w-md"
-                    />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start mb-8">
+                    <div>
+                        <div className="flex justify-between items-center mb-4">
+                            <h1 className="text-4xl font-bold text-primary">Premios Oscar 2025</h1>
+                            <ModeToggle />
+                        </div>
+                        <Input
+                            placeholder="Ingresa tu nombre"
+                            value={nombre}
+                            onChange={(e) => setNombre(e.target.value)}
+                            className="max-w-md mb-4"
+                        />
+                        <select value={selectedCategory} onChange={handleCategoryChange} className="p-2 border rounded">
+                            <option value="all">Todas las categorías</option>
+                            {Object.keys(oscarsData.Premios_Oscar_2025).map(categoria => (
+                                <option key={categoria} value={categoria}>
+                                    {categoria.replace(/_/g, " ")}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="p-4 border rounded bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-center">
+                        <h3 className="text-lg font-bold mb-2">Detalles Adicionales</h3>
+                        <p><strong>Fecha:</strong> {detallesOscars.Detalles_Adicionales.Fecha_Ceremonia}</p>
+                        <p><strong>Lugar:</strong> {detallesOscars.Detalles_Adicionales.Lugar}</p>
+                        <p><strong>Conductor:</strong> {detallesOscars.Detalles_Adicionales.Conductor}</p>
+                        <h4 className="mt-2 font-bold">Nominaciones Destacadas:</h4>
+                        <ul className="list-disc list-inside">
+                            {Object.entries(detallesOscars.Detalles_Adicionales.Nominaciones_Destacadas).map(([pelicula, nominaciones]) => (
+                                <li key={pelicula}>{pelicula.replace(/_/g, " ")}: {nominaciones}</li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
 
                 <div className="space-y-12">
-                    <section>
-                        <h2 className="text-3xl font-bold mb-6">Televisión</h2>
-                        {Object.keys(globosData.television).map(categoria =>
-                            renderCategoriaCards("television", categoria)
-                        )}
-                    </section>
-
-                    <section>
-                        <h2 className="text-3xl font-bold mb-6">Cine</h2>
-                        {Object.keys(globosData.cine).map(categoria =>
-                            renderCategoriaCards("cine", categoria)
-                        )}
-                    </section>
+                    {selectedCategory === "all"
+                        ? Object.keys(oscarsData.Premios_Oscar_2025).map(categoria =>
+                            renderCategoriaCards(categoria)
+                        )
+                        : renderCategoriaCards(selectedCategory)
+                    }
                 </div>
 
                 <div className="mt-12 bg-card p-6 rounded-lg">
@@ -188,7 +171,7 @@ export default function VotingSystem() {
                                     <tr>
                                         <th colSpan={3} className="text-left p-2 pb-4">
                                             <div className="text-lg font-bold">
-                                                Globos de Oro 2025
+                                                Premios Oscar 2025
                                                 {nombre && (
                                                     <span className="block text-sm font-normal text-muted-foreground mt-1">
                                                         Votante: {nombre}
@@ -207,7 +190,7 @@ export default function VotingSystem() {
                                     {Object.entries(votos).map(([categoria, seleccion]) => (
                                         <tr key={`resumen-${categoria}`} className="border-t">
                                             <td className="p-2">
-                                                {Object.keys(globosData.television).includes(categoria) ? "TV" : "CINE"}
+                                                {Object.keys(oscarsData.Premios_Oscar_2025).includes(categoria) ? "CINE" : "TV"}
                                             </td>
                                             <td className="p-2 capitalize">{categoria.replace(/_/g, " ")}</td>
                                             <td className="p-2">{seleccion}</td>

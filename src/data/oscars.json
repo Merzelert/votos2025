@@ -1,0 +1,107 @@
+{
+    "Premios_Oscar_2025": {
+        "Mejor_Pelicula": [
+            "Anora",
+            "The Brutalist",
+            "A Complete Unknown",
+            "Conclave",
+            "Dune: Part Two",
+            "Emilia Pérez",
+            "I'm Still Here",
+            "Nickel Boys",
+            "The Substance",
+            "Wicked"
+        ],
+        "Mejor_Director": [
+            "Sean Baker (Anora)",
+            "Brady Corbet (The Brutalist)",
+            "James Mangold (A Complete Unknown)",
+            "Jacques Audiard (Emilia Pérez)",
+            "Coralie Fargeat (The Substance)"
+        ],
+        "Mejor_Actriz": [
+            "Cynthia Erivo (Wicked)",
+            "Karla Sofía Gascón (Emilia Pérez)",
+            "Mikey Madison (Anora)",
+            "Demi Moore (The Substance)",
+            "Fernanda Torres (I'm Still Here)"
+        ],
+        "Mejor_Actor": [
+            "Adrien Brody (The Brutalist)",
+            "Timothée Chalamet (A Complete Unknown)",
+            "Colman Domingo (Sing Sing)",
+            "Ralph Fiennes (Conclave)",
+            "Sebastian Stan (The Apprentice)"
+        ],
+        "Mejor_Actriz_de_Reparto": [
+            "Monica Barbaro (A Complete Unknown)",
+            "Ariana Grande (Wicked)",
+            "Felicity Jones (The Brutalist)",
+            "Isabella Rossellini (Conclave)",
+            "Zoe Saldaña (Emilia Pérez)"
+        ],
+        "Mejor_Actor_de_Reparto": [
+            "Yura Borisov (Anora)",
+            "Kieran Culkin (A Real Pain)",
+            "Edward Norton (A Complete Unknown)",
+            "Guy Pearce (The Brutalist)",
+            "Jeremy Strong (The Apprentice)"
+        ],
+        "Mejor_Pelicula_Internacional": [
+            "I’m Still Here (Brasil)",
+            "The Girl with the Needle (Dinamarca)",
+            "Emilia Pérez (Francia)",
+            "The Seed of the Sacred Fig (Alemania)",
+            "Flow (Letonia)"
+        ],
+        "Mejor_Pelicula_Animada": [
+            "Flow",
+            "Inside Out 2",
+            "Memoir of a Snail",
+            "Wallace & Gromit: Vengeance Most Fowl",
+            "The Wild Robot"
+        ],
+        "Mejor_Guion_Original": [
+            "Anora",
+            "The Brutalist",
+            "A Real Pain",
+            "September 5",
+            "The Substance"
+        ],
+        "Mejor_Guion_Adaptado": [
+            "A Complete Unknown",
+            "Conclave",
+            "Emilia Pérez",
+            "Nickel Boys",
+            "Sing Sing"
+        ],
+        "Mejor_Fotografia": [
+            "The Brutalist",
+            "Dune: Part Two",
+            "Emilia Pérez",
+            "Maria",
+            "Nosferatu"
+        ],
+        "Mejor_Banda_Sonora": [
+            "The Brutalist",
+            "Conclave",
+            "Emilia Pérez",
+            "Wicked",
+            "The Wild Robot"
+        ],
+        "Mejor_Canción_Original": [
+            "El Mal (Emilia Pérez)",
+            "The Journey (The Six Triple Eight)",
+            "Like a Bird (Sing Sing)",
+            "Mi Camino (Emilia Pérez)",
+            "Never Too Late (Elton John: Never Too Late)"
+        ],
+        "Mejor_Efectos_Visuales": [
+            "Alien: Romulus",
+            "Better Man",
+            "Dune: Part Two",
+            "Kingdom of the Planet of the Apes",
+            "Wicked"
+        ]
+    }
+}
