@@ -28,11 +28,10 @@ const styles = StyleSheet.create({
     }
 })
 
-interface PdfDocumentProps {
+export interface PdfDocumentProps {
     nombre: string
     votos: Record<string, string>
 }
-
 
 const MyDocument = ({ nombre, votos }: PdfDocumentProps) => (
     <Document>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import dynamic from 'next/dynamic'
+import type { PdfDocumentProps } from './pdf-document'
 
 interface PdfButtonProps {
     nombre: string
@@ -10,7 +11,8 @@ interface PdfButtonProps {
 }
 
 // Componente del documento PDF cargado dinámicamente
-const PdfDocument = dynamic(() => import('./pdf-document'), {
+const PdfDocument = dynamic<PdfDocumentProps>(() => 
+    import('./pdf-document').then(mod => mod.PdfDocument), {
     ssr: false,
     loading: () => <Button disabled>Cargando PDF...</Button>
 })

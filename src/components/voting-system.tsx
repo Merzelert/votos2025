@@ -54,12 +54,15 @@ export default function VotingSystem() {
         }
     }, [])
 
-    // Ensure no direct DOM manipulation in render phase
+    // Actualizar handleVote para guardar en localStorage
     const handleVote = (categoria: string, seleccion: string) => {
-        setVotos(prev => ({
-            ...prev,
+        const newVotos = {
+            ...votos,
             [categoria]: seleccion
-        }))
+        }
+        setVotos(newVotos)
+        // Guardar en localStorage
+        localStorage.setItem(STORAGE_KEYS.VOTOS, JSON.stringify(newVotos))
     }
 
     const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -67,14 +70,16 @@ export default function VotingSystem() {
     }
 
     const handleClearVotes = () => {
-        // Primero actualizamos el estado
         setVotos({})
-        
-        // Luego limpiamos localStorage
-        window.localStorage.removeItem(STORAGE_KEYS.VOTOS)
-        
-        // Opcional: recargar la página para asegurar un estado limpio
+        localStorage.removeItem(STORAGE_KEYS.VOTOS)
         window.location.reload()
+    }
+
+    // También guardar el nombre cuando cambie
+    const handleNombreChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newNombre = e.target.value
+        setNombre(newNombre)
+        localStorage.setItem(STORAGE_KEYS.NOMBRE, newNombre)
     }
 
     const renderCategoriaCards = (categoria: string) => {
@@ -131,7 +136,7 @@ export default function VotingSystem() {
                         <Input
                             placeholder="Ingresa tu nombre"
                             value={nombre}
-                            onChange={(e) => setNombre(e.target.value)}
+                            onChange={handleNombreChange}
                             className="max-w-md mb-4"
                         />
                         <select value={selectedCategory} onChange={handleCategoryChange} className="p-2 border rounded">
