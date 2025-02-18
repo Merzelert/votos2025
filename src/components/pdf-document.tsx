@@ -33,6 +33,7 @@ interface PdfDocumentProps {
     votos: Record<string, string>
 }
 
+
 const MyDocument = ({ nombre, votos }: PdfDocumentProps) => (
     <Document>
         <Page size="A4" style={styles.page}>
@@ -60,11 +61,9 @@ export default function PdfDocument({ nombre, votos }: PdfDocumentProps) {
             document={<MyDocument nombre={nombre} votos={votos} />}
             fileName={fileName}
         >
-            {({ loading }) => (
-                <Button disabled={loading}>
-                    {loading ? "Generando..." : "Exportar a PDF"}
-                </Button>
-            )}
+            <Button>
+                Exportar a PDF
+            </Button>
         </PDFDownloadLink>
     )
 } 
