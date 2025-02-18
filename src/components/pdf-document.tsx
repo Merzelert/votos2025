@@ -50,7 +50,7 @@ const MyDocument = ({ nombre, votos }: PdfDocumentProps) => (
     </Document>
 )
 
-export default function PdfDocument({ nombre, votos }: PdfDocumentProps) {
+export const PdfDocument = ({ nombre, votos }: PdfDocumentProps) => {
     const fileName = useMemo(() => 
         `oscar-2025-${nombre.toLowerCase().replace(/\s+/g, "-")}.pdf`,
         [nombre]
