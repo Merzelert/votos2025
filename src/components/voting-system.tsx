@@ -186,7 +186,7 @@ export default function VotingSystem() {
                                 </p>
                             </div>
                         </div>
-                        <div className="flex space-x-2">
+                        <div className="flex flex-col md:flex-row gap-2">
                             {/* Separar los botones */}
                             {Object.keys(votos).length > 0 && (
                                 <>
