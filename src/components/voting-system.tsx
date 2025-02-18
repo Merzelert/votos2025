@@ -35,6 +35,8 @@ export default function VotingSystem() {
     const [votos, setVotos] = useState<Record<string, string>>({})
     const [nombre, setNombre] = useState("")
     const [selectedCategory, setSelectedCategory] = useState<string>("Mejor_Pelicula")
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const categories = Object.keys(oscarsData.Premios_Oscar_2025)
 
     // Ensure data is consistent between server and client
     useEffect(() => {
@@ -66,7 +68,12 @@ export default function VotingSystem() {
     }
 
     const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedCategory(event.target.value)
+        const category = event.target.value
+        setSelectedCategory(category)
+        if (category !== 'all') {
+            const newIndex = categories.indexOf(category)
+            setCurrentIndex(newIndex)
+        }
     }
 
     const handleClearVotes = () => {
@@ -80,6 +87,24 @@ export default function VotingSystem() {
         const newNombre = e.target.value
         setNombre(newNombre)
         localStorage.setItem(STORAGE_KEYS.NOMBRE, newNombre)
+    }
+
+    const handlePrevious = () => {
+        setCurrentIndex((prev) => {
+            const newIndex = prev - 1
+            const category = categories[newIndex]
+            setSelectedCategory(category)
+            return newIndex
+        })
+    }
+
+    const handleNext = () => {
+        setCurrentIndex((prev) => {
+            const newIndex = prev + 1
+            const category = categories[newIndex]
+            setSelectedCategory(category)
+            return newIndex
+        })
     }
 
     const renderCategoriaCards = (categoria: string) => {
@@ -163,12 +188,34 @@ export default function VotingSystem() {
                 </div>
 
                 <div className="space-y-12">
-                    {selectedCategory === "all"
-                        ? Object.keys(oscarsData.Premios_Oscar_2025).map(categoria =>
+                    {selectedCategory === "all" ? (
+                        Object.keys(oscarsData.Premios_Oscar_2025).map(categoria =>
                             renderCategoriaCards(categoria)
                         )
-                        : renderCategoriaCards(selectedCategory)
-                    }
+                    ) : (
+                        <>
+                            {renderCategoriaCards(selectedCategory)}
+                            <div className="flex justify-between items-center mt-8">
+                                <Button
+                                    onClick={handlePrevious}
+                                    disabled={currentIndex === 0}
+                                    variant="outline"
+                                >
+                                    ← Anterior
+                                </Button>
+                                <span className="text-muted-foreground">
+                                    {currentIndex + 1} de {categories.length}
+                                </span>
+                                <Button
+                                    onClick={handleNext}
+                                    disabled={currentIndex === categories.length - 1}
+                                    variant="outline"
+                                >
+                                    Siguiente →
+                                </Button>
+                            </div>
+                        </>
+                    )}
                 </div>
 
                 <div className="mt-12 bg-card p-6 rounded-lg">
