@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
+// import Image from "next/image"
 import { ModeToggle } from "@/components/mode-toggle"
 import oscarsData from "@/data/oscars.json"
 import { Button } from "@/components/ui/button"
