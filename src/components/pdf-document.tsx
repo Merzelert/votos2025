@@ -1,70 +1,30 @@
 "use client"
 
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer'
-import globosData from "@/data/globos.json"
+import { useMemo } from 'react'
+import { Button } from "@/components/ui/button"
+import { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer'
 
 const styles = StyleSheet.create({
     page: {
         flexDirection: 'column',
-        backgroundColor: '#ffffff',
+        backgroundColor: '#fff',
         padding: 30
     },
-    header: {
-        marginBottom: 10,
-        borderBottom: 1,
-        borderBottomColor: '#666',
-        paddingBottom: 5
+    section: {
+        margin: 10,
+        padding: 10,
     },
     title: {
-        fontSize: 14,
-        marginBottom: 5
+        fontSize: 24,
+        marginBottom: 10,
     },
-    voter: {
+    subtitle: {
+        fontSize: 18,
+        marginBottom: 10,
+    },
+    text: {
         fontSize: 12,
-        color: '#666',
-        marginBottom: 5
-    },
-    table: {
-        display: 'flex',
-        width: 'auto',
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderColor: '#bfbfbf',
-        marginBottom: 10
-    },
-    tableRow: {
-        flexDirection: 'row',
-        borderBottomWidth: 1,
-        borderBottomColor: '#bfbfbf',
-        minHeight: 10,
-        alignItems: 'center'
-    },
-    tableHeader: {
-        backgroundColor: '#f0f0f0'
-    },
-    typeCell: {
-        width: '10%',
-        padding: 6,
-        fontSize: 10
-    },
-    categoryCell: {
-        width: '45%',
-        padding: 6,
-        fontSize: 10
-    },
-    selectionCell: {
-        width: '45%',
-        padding: 6,
-        fontSize: 10
-    },
-    footer: {
-        position: 'absolute',
-        bottom: 30,
-        left: 30,
-        right: 30,
-        textAlign: 'center',
-        color: '#666',
-        fontSize: 10
+        marginBottom: 5,
     }
 })
 
@@ -73,42 +33,38 @@ interface PdfDocumentProps {
     votos: Record<string, string>
 }
 
-export function PdfDocument({ nombre, votos }: PdfDocumentProps) {
-    const getType = (categoria: string) => {
-        return Object.keys(globosData.television).includes(categoria) ? "TV" : "CINE"
-    }
+const MyDocument = ({ nombre, votos }: PdfDocumentProps) => (
+    <Document>
+        <Page size="A4" style={styles.page}>
+            <View style={styles.section}>
+                <Text style={styles.title}>Premios Oscar 2025</Text>
+                <Text style={styles.subtitle}>Votante: {nombre}</Text>
+                {Object.entries(votos).map(([categoria, seleccion]) => (
+                    <Text key={categoria} style={styles.text}>
+                        {categoria.replace(/_/g, " ")}: {seleccion}
+                    </Text>
+                ))}
+            </View>
+        </Page>
+    </Document>
+)
+
+export default function PdfDocument({ nombre, votos }: PdfDocumentProps) {
+    const fileName = useMemo(() => 
+        `oscar-2025-${nombre.toLowerCase().replace(/\s+/g, "-")}.pdf`,
+        [nombre]
+    )
 
     return (
-        <Document>
-            <Page size="A4" style={styles.page}>
-                <View style={styles.header}>
-                    <Text style={styles.title}>Globos de Oro 2025</Text>
-                    {nombre && <Text style={styles.voter}>Votante: {nombre}</Text>}
-                </View>
-
-                <View style={styles.table}>
-                    <View style={[styles.tableRow, styles.tableHeader]}>
-                        <Text style={styles.typeCell}>Tipo</Text>
-                        <Text style={styles.categoryCell}>Categoría</Text>
-                        <Text style={styles.selectionCell}>Selección</Text>
-                    </View>
-                    {Object.entries(votos).map(([categoria, seleccion], index) => (
-                        <View key={index} style={styles.tableRow}>
-                            <Text style={styles.typeCell}>
-                                {getType(categoria)}
-                            </Text>
-                            <Text style={styles.categoryCell}>
-                                {categoria.replace(/_/g, " ")}
-                            </Text>
-                            <Text style={styles.selectionCell}>{seleccion}</Text>
-                        </View>
-                    ))}
-                </View>
-
-                <Text style={styles.footer}>
-                    Creado por Erik Retana Dev en Next.js
-                </Text>
-            </Page>
-        </Document>
+        <PDFDownloadLink
+            document={<MyDocument nombre={nombre} votos={votos} />}
+            fileName={fileName}
+        >
+            {({ loading }) => (
+                <Button disabled={loading}>
+                    {loading ? "Generando..." : "Exportar a PDF"}
+                </Button>
+            )}
+        </PDFDownloadLink>
     )
 } 

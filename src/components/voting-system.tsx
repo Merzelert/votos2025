@@ -66,6 +66,17 @@ export default function VotingSystem() {
         setSelectedCategory(event.target.value)
     }
 
+    const handleClearVotes = () => {
+        // Primero actualizamos el estado
+        setVotos({})
+        
+        // Luego limpiamos localStorage
+        window.localStorage.removeItem(STORAGE_KEYS.VOTOS)
+        
+        // Opcional: recargar la página para asegurar un estado limpio
+        window.location.reload()
+    }
+
     const renderCategoriaCards = (categoria: string) => {
         const nominees = oscarsData.Premios_Oscar_2025[categoria as keyof typeof oscarsData.Premios_Oscar_2025]
         if (!Array.isArray(nominees)) return null
@@ -103,6 +114,10 @@ export default function VotingSystem() {
             </div>
         )
     }
+
+    // Obtener el total de categorías y votos realizados
+    const totalCategorias = Object.keys(oscarsData.Premios_Oscar_2025).length
+    const votosRealizados = Object.keys(votos).length
 
     return (
         <div className="min-h-screen p-4 md:p-8 flex flex-col">
@@ -155,13 +170,32 @@ export default function VotingSystem() {
                     <div className="flex justify-between items-center mb-4">
                         <div className="space-y-2">
                             <h2 className="text-2xl font-bold">Resumen de votos</h2>
-                            {nombre && (
+                            <div className="space-y-1">
+                                {nombre && (
+                                    <p className="text-muted-foreground">
+                                        Votante: {nombre}
+                                    </p>
+                                )}
                                 <p className="text-muted-foreground">
-                                    Votante: {nombre}
+                                    Progreso: {votosRealizados}/{totalCategorias} categorías votadas
                                 </p>
+                            </div>
+                        </div>
+                        <div className="flex space-x-2">
+                            {/* Separar los botones */}
+                            {Object.keys(votos).length > 0 && (
+                                <>
+                                    <PdfButton nombre={nombre} votos={votos} />
+                                    <Button 
+                                        onClick={handleClearVotes}
+                                        variant="destructive" 
+                                        className="w-full md:w-auto"
+                                    >
+                                        Reiniciar Votos
+                                    </Button>
+                                </>
                             )}
                         </div>
-                        <PdfButton nombre={nombre} votos={votos} />
                     </div>
 
                     <ScrollArea className="h-[400px] rounded-md border">

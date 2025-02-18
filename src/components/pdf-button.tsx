@@ -2,30 +2,29 @@
 
 import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
-import type { PdfDownloadButton } from '@/components/pdf-download-button'
+import dynamic from 'next/dynamic'
 
 interface PdfButtonProps {
     nombre: string
     votos: Record<string, string>
 }
 
-export function PdfButton({ nombre, votos }: PdfButtonProps) {
-    const [PDFDownload, setPDFDownload] = useState<typeof PdfDownloadButton | null>(null)
+// Componente del documento PDF cargado dinámicamente
+const PdfDocument = dynamic(() => import('./pdf-document'), {
+    ssr: false,
+    loading: () => <Button disabled>Cargando PDF...</Button>
+})
+
+export const PdfButton = ({ nombre, votos }: PdfButtonProps) => {
+    const [isClient, setIsClient] = useState(false)
 
     useEffect(() => {
-        import('@/components/pdf-download-button').then((module) => {
-            setPDFDownload(() => module.PdfDownloadButton)
-        })
+        setIsClient(true)
     }, [])
 
-    if (!PDFDownload) {
-        return (
-            <Button disabled>
-                Cargando PDF...
-            </Button>
-        )
+    if (!isClient) {
+        return <Button disabled>Cargando PDF...</Button>
     }
 
-    const PdfComponent = PDFDownload
-    return <PdfComponent nombre={nombre} votos={votos} />
+    return <PdfDocument nombre={nombre} votos={votos} />
 } 
