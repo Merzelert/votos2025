@@ -11,25 +11,25 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { PdfButton } from '@/components/pdf-button'
 import detallesOscars from "@/data/detallesOscars.json"
 
-interface Nominee {
-    nombre: string
-    imagen: string
-}
+// interface Nominee {
+//     nombre: string
+//     imagen: string
+// }
 
 const STORAGE_KEYS = {
     VOTOS: 'globos_oro_votos',
     NOMBRE: 'globos_oro_nombre'
 } as const
 
-const createJustWatchUrl = (nombre: string) => {
-    // Limpiamos el nombre de caracteres especiales y roles
-    const cleanName = nombre.split('–')[0].trim() // Remueve el rol/película después del guión
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "") // Remueve acentos
-        .replace(/[^a-zA-Z0-9\s]/g, "") // Solo deja letras, números y espacios
+// const createJustWatchUrl = (nombre: string) => {
+//     // Limpiamos el nombre de caracteres especiales y roles
+//     const cleanName = nombre.split('–')[0].trim() // Remueve el rol/película después del guión
+//         .normalize("NFD")
+//         .replace(/[\u0300-\u036f]/g, "") // Remueve acentos
+//         .replace(/[^a-zA-Z0-9\s]/g, "") // Solo deja letras, números y espacios
     
-    return `https://justwatch.com/mx/buscar?q=${encodeURIComponent(cleanName)}`
-}
+//     return `https://justwatch.com/mx/buscar?q=${encodeURIComponent(cleanName)}`
+// }
 
 export default function VotingSystem() {
     const [votos, setVotos] = useState<Record<string, string>>({})
