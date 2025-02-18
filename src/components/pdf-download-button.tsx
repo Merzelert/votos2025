@@ -2,7 +2,7 @@
 
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import { Button } from "@/components/ui/button"
-import PdfDocument from '@/components/pdf-document'
+import { PdfDocument } from '@/components/pdf-document'
 import globosData from "@/data/globos.json"
 
 interface PdfDownloadButtonProps {
